@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: cloud-payment-server
+    name: cloud-paymentzk-server
   datasource:
     #开发服务机
     url: jdbc:mysql://localhost:3306/my_proj_db?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true
