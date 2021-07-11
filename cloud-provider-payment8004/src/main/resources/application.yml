@@ -1,0 +1,39 @@
+server:
+  port: 8004
+
+spring:
+  application:
+    name: cloud-payment-server
+  datasource:
+    #开发服务机
+    url: jdbc:mysql://localhost:3306/my_proj_db?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true
+    username: root
+    password: xh208687
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 60000 #指定连接的超时时间，毫秒单位.
+      idle-timeout: 600000 #指定连接多久没被使用时，被设置为空闲，默认值：1800000（30分钟）
+      max-lifetime: 600000 #指定连接池中连接的最大生存时间，毫秒单位.
+      minimum-idle: 30 #池中维护的最小空闲连接数
+      maximum-pool-size: 60 #池中最大连接数，包括闲置和使用中的连接
+      validation-timeout: 5000 #  连接将被测试活动的最大时间量
+      leak-detection-threshold:  1000 #使用Hikari connection pool时，多少毫秒检测一次连接泄露
+      login-timeout: 600000 #指定连接数据库的超时时间
+      readOnly:  false
+  cloud:
+    zookeeper:
+      connect-string: 192.168.87.151:2181,192.168.87.152:2181,192.168.87.153:2181
+
+# MyBatis
+mybatis:
+  # 搜索指定包别名
+  typeAliasesPackage: com.**.entities
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapperLocations: classpath*:mapper/*.xml
+  # 加载全局的配置文件
+  #configLocation: classpath:mybatis/mybatis-config.xml
+# 日志配置
+logging:
+  level:
+    com.proj: debug
+    org.springframework: warn
