@@ -6,7 +6,7 @@ spring:
     name: cloud-provider-payment8001
   datasource:
     #开发服务机
-    url: jdbc:mysql://localhost:3306/my_proj_db?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true
+    url: jdbc:mysql://39.107.60.216:3306/my_proj_db?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true
     username: root
     password: xh208687
     driver-class-name: com.mysql.cj.jdbc.Driver
