@@ -14,3 +14,7 @@ eureka:
       # 设置与Eureka Server 交互的地址查询服务和注册服务都需要依赖这个地址
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ # 单机模式
       defaultZone: http://eureka7003.com:7003/eureka/ # 集群模式
+  server:
+    # 关闭自我保护机制, 保证不可用服务及时剔除注册中心 CAP 理论中AP 修改为 P
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 2000 # 开启自我保护机制后，服务在该时间内没有发送心跳则剔除
