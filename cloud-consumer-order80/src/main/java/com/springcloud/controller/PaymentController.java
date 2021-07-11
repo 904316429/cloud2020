@@ -20,7 +20,8 @@ import javax.annotation.Resource;
 public class PaymentController {
 
 
-    public static final String PAYMENT_URL = "http://localhost:8001";
+//    public static final String PAYMENT_URL = "http://localhost:8001"; // 单击版本
+    public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVER"; // 集群版本
 
     @Resource
     private RestTemplate restTemplate;
