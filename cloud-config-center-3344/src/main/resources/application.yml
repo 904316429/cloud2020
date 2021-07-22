@@ -1,0 +1,28 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-center # 注册进eureka 服务器的服务名
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/904316429/springcloud-config.git #GitHub 上的git仓库地址
+          # 搜索目录
+          search-paths:
+            - springcloud-config
+      # 读取分支
+      label: master
+
+eureka:
+  client:
+    # 表示是否将自己注册进EurekaServer 默认为true
+    register-with-eureka: true
+    # 是否从EurekaServer 抓去自己的注册信息, 默认为true, 单节点无所谓，
+    # 集群必需设置为true 才能配合ribbon 使用负载均衡
+    fetch-registry: true
+    service-url:
+      # 设置与Eureka Server 交互的地址查询服务和注册服务都需要依赖这个地址
+      #defaultZone: http://localhost:7002/eureka/ # 单机版
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/ # 集群模式
