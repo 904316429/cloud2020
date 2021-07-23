@@ -12,6 +12,13 @@
     <artifactId>cloud-consumer-order80</artifactId>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-zipkin -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+            <version>2.2.1.RELEASE</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
