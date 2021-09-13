@@ -7,6 +7,8 @@
   <groupId>com.mywoke.springcloud</groupId>
   <artifactId>cloud2020</artifactId>
   <version>1.0</version>
+
+  <packaging>pom</packaging>
   <modules>
     <module>cloud-provider-payment8001</module>
     <module>cloud-consumer-order80</module>
@@ -27,13 +29,19 @@
       <module>cloud-stream-rabbitmq-provider8801</module>
     <module>cloud-stream-rabbitmq-consumer8802</module>
     <module>cloud-stream-rabbitmq-consumer8803</module>
+    <module>cloudalibaba-provider-pyament9001</module>
+    <module>cloudalibaba-provider-pyament9002</module>
+    <module>cloudalibaba-consumer-nacos-order83</module>
+      <module>cloudalibaba-config-nacos-client3377</module>
+    <module>cloudalibaba-sentinel-service8401</module>
+    <module>cloud-canal-client</module>
   </modules>
-
-  <packaging>pom</packaging>
 
   <!-- 统一管理jar包版本 -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
     <java.version>1.8</java.version>
     <junit.version>4.12</junit.version>
     <log4j.version>1.2.17</log4j.version>
@@ -113,46 +121,17 @@
     </dependencies>
   </dependencyManagement>
 
-
-
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-          <encoding>${project.build.sourceEncoding}</encoding>
+          <fork>true</fork>
+          <addResources>true</addResources>
         </configuration>
       </plugin>
     </plugins>
   </build>
-
-  <repositories>
-    <repository>
-      <id>public</id>
-      <name>aliyun nexus</name>
-      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </repository>
-  </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>public</id>
-      <name>aliyun nexus</name>
-      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
 
 </project>
