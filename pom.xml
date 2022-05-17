@@ -31,7 +31,6 @@
         <module>cloud-stream-rabbitmq-consumer8803</module>
 
         <module>cloud-canal-client</module>
-        <module>cloud-other-proj</module>
         <module>cloud-elasticsearch</module>
 
 
