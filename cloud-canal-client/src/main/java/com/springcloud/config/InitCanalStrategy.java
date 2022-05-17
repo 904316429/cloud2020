@@ -66,17 +66,19 @@ public class InitCanalStrategy {
     }
 
     private static void classifyClass(Map<String, Class> rabbitMqCanalStrategys, Map<String, Class> rocketMqCanalStrategys, Map<String, Class> kafkaCanalStrategys, Map<String, Class> tcpCanalStrategys,  Class c) throws Exception {
-        Annotation annotation = c.newInstance().getClass().getAnnotation(CanalStrategy.class);
-        if (Objects.isNull(annotation)) return;
-        CanalClientEnums canalClientEnums = ((CanalStrategy) annotation).canalClientEnum();
+        CanalStrategy annotation = c.newInstance().getClass().getAnnotation(CanalStrategy.class);
+        if (Objects.isNull(annotation))
+            return;
+
+        CanalClientEnums canalClientEnums = annotation.canalClientEnum();
         if (Objects.equals(CanalClientEnums.RabbitMQ, canalClientEnums)) {
-            rabbitMqCanalStrategys.put(((CanalStrategy) annotation).table(), c);
+            rabbitMqCanalStrategys.put(annotation.table(), c);
         } else if (Objects.equals(CanalClientEnums.Kafka, canalClientEnums)) {
-            kafkaCanalStrategys.put(((CanalStrategy) annotation).table(), c);
+            kafkaCanalStrategys.put(annotation.table(), c);
         } else if (Objects.equals(CanalClientEnums.RocketMQ, canalClientEnums)) {
-            rocketMqCanalStrategys.put(((CanalStrategy) annotation).table(), c);
+            rocketMqCanalStrategys.put(annotation.table(), c);
         } else if (Objects.equals(CanalClientEnums.Tcp, canalClientEnums)){
-            tcpCanalStrategys.put(((CanalStrategy) annotation).table(), c);
+            tcpCanalStrategys.put(annotation.table(), c);
         }
     }
 
